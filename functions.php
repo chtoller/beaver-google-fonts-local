@@ -16,8 +16,9 @@ add_action( 'wp_enqueue_scripts', 'FLChildTheme::enqueue_scripts', 1000 );
 add_filter( 'fl_builder_google_fonts_pre_enqueue', function( $fonts ) {
     return array();
 } );
+
 // takes care of theme enqueues
-add_action( 'fl_head', function() {
+add_action( 'wp_enqueue_scripts', function() {
     global $wp_styles;
     if ( isset( $wp_styles->queue ) ) {
         foreach ( $wp_styles->queue as $key => $handle ) {
@@ -26,5 +27,4 @@ add_action( 'fl_head', function() {
             }
         }
     }
-}, 11 );
-
+}, 101 );
